@@ -245,36 +245,65 @@
 
 // 25) Busca Binária {Com ajuda do Chat GPT}
 
+// #include <stdio.h>
+
+// int buscaBinaria(int array[], int inicio, int fim, int valor) {
+//     if (inicio > fim) {
+//         return -1;
+//     }
+
+//     int meio = (inicio + fim) / 2;
+
+//     if (array[meio] == valor) {
+//         return meio;
+//     }
+
+//     if (valor < array[meio]) {
+//         return buscaBinaria(array, inicio, meio - 1, valor);
+//     } else {
+//         return buscaBinaria(array, meio + 1, fim, valor);
+//     }
+// }
+
+// int main() {
+//     int array[] = {1, 3, 5, 7, 9};
+//     int tamanho = sizeof(array) / sizeof(array[0]);
+//     int valor = 9;
+
+//     int indice = buscaBinaria(array, 0, tamanho - 1, valor);
+
+//     if (indice != -1) {
+//         printf("Elemento %d encontrado no indice %d.\n", valor, indice);
+//     } else {
+//         printf("Elemento %d não encontrado.\n", valor);
+//     }
+// }
+
+// 26) Exponenciação Rápida {Com ajuda do Chat GPT devido à DeadLine}
+
 #include <stdio.h>
 
-int buscaBinaria(int array[], int inicio, int fim, int valor) {
-    if (inicio > fim) {
-        return -1;
+int exponenciacaoRapida(int x, int n) {
+    if (n == 0) {
+        return 1;
     }
 
-    int meio = (inicio + fim) / 2;
+    int metade = exponenciacaoRapida(x, n / 2);
 
-    if (array[meio] == valor) {
-        return meio;
-    }
-
-    if (valor < array[meio]) {
-        return buscaBinaria(array, inicio, meio - 1, valor);
+    if (n % 2 == 0) {
+        return metade * metade;
     } else {
-        return buscaBinaria(array, meio + 1, fim, valor);
+        return x * metade * metade;
     }
 }
 
 int main() {
-    int array[] = {1, 3, 5, 7, 9};
-    int tamanho = sizeof(array) / sizeof(array[0]);
-    int valor = 9;
+    int x = 2;
+    int n = 4;
 
-    int indice = buscaBinaria(array, 0, tamanho - 1, valor);
+    int resultado = exponenciacaoRapida(x, n);
 
-    if (indice != -1) {
-        printf("Elemento %d encontrado no indice %d.\n", valor, indice);
-    } else {
-        printf("Elemento %d não encontrado.\n", valor);
-    }
+    printf("%d^%d = %d\n", x, n, resultado);
+
+    return 0;
 }
