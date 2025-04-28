@@ -281,29 +281,73 @@
 
 // 26) Exponenciação Rápida {Com ajuda do Chat GPT devido à DeadLine}
 
+// #include <stdio.h>
+
+// int exponenciacaoRapida(int x, int n) {
+//     if (n == 0) {
+//         return 1;
+//     }
+
+//     int metade = exponenciacaoRapida(x, n / 2);
+
+//     if (n % 2 == 0) {
+//         return metade * metade;
+//     } else {
+//         return x * metade * metade;
+//     }
+// }
+
+// int main() {
+//     int x = 2;
+//     int n = 4;
+
+//     int resultado = exponenciacaoRapida(x, n);
+
+//     printf("%d^%d = %d\n", x, n, resultado);
+
+//     return 0;
+// }
+
+// 27) Caminho em uma Matriz {Com a ajuda do Chat GPT}
+
 #include <stdio.h>
 
-int exponenciacaoRapida(int x, int n) {
-    if (n == 0) {
-        return 1;
+#define MAX 100
+
+void imprimirCaminho(int caminho[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        printf("(%d,%d) ", caminho[i*2], caminho[i*2+1]);
+        if (i < tamanho - 1) {
+            printf("-> ");
+        }
+    }
+    printf("\n");
+}
+
+void encontrarCaminhos(int x1, int y1, int x2, int y2, int caminho[], int posicao) {
+    caminho[posicao++] = x1;
+    caminho[posicao++] = y1;
+
+    if (x1 == x2 && y1 == y2) {
+        imprimirCaminho(caminho, posicao / 2);
+        return;
     }
 
-    int metade = exponenciacaoRapida(x, n / 2);
+    if (x1 < x2) {
+        encontrarCaminhos(x1 + 1, y1, x2, y2, caminho, posicao);
+    }
 
-    if (n % 2 == 0) {
-        return metade * metade;
-    } else {
-        return x * metade * metade;
+    if (y1 < y2) {
+        encontrarCaminhos(x1, y1 + 1, x2, y2, caminho, posicao);
     }
 }
 
 int main() {
-    int x = 2;
-    int n = 4;
+    int linhas = 3;
+    int colunas = 3;
 
-    int resultado = exponenciacaoRapida(x, n);
+    int caminho[MAX];
 
-    printf("%d^%d = %d\n", x, n, resultado);
-
-    return 0;
+    printf("Todos os caminhos de (0,0) ate (%d,%d):\n", linhas-1, colunas-1);
+    encontrarCaminhos(0, 0, linhas - 1, colunas - 1, caminho, 0);
 }
