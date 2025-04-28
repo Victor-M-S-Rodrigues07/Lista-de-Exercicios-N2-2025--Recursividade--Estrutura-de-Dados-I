@@ -310,44 +310,115 @@
 
 // 27) Caminho em uma Matriz {Com a ajuda do Chat GPT}
 
+// #include <stdio.h>
+
+// #define MAX 100
+
+// void imprimirCaminho(int caminho[], int tamanho) {
+//     for (int i = 0; i < tamanho; i++) {
+//         printf("(%d,%d) ", caminho[i*2], caminho[i*2+1]);
+//         if (i < tamanho - 1) {
+//             printf("-> ");
+//         }
+//     }
+//     printf("\n");
+// }
+
+// void encontrarCaminhos(int x1, int y1, int x2, int y2, int caminho[], int posicao) {
+//     caminho[posicao++] = x1;
+//     caminho[posicao++] = y1;
+
+//     if (x1 == x2 && y1 == y2) {
+//         imprimirCaminho(caminho, posicao / 2);
+//         return;
+//     }
+
+//     if (x1 < x2) {
+//         encontrarCaminhos(x1 + 1, y1, x2, y2, caminho, posicao);
+//     }
+
+//     if (y1 < y2) {
+//         encontrarCaminhos(x1, y1 + 1, x2, y2, caminho, posicao);
+//     }
+// }
+
+// int main() {
+//     int linhas = 3;
+//     int colunas = 3;
+
+//     int caminho[MAX];
+
+//     printf("Todos os caminhos de (0,0) ate (%d,%d):\n", linhas-1, colunas-1);
+//     encontrarCaminhos(0, 0, linhas - 1, colunas - 1, caminho, 0);
+// }
+
+// 28) Problema das N-Rainhas
+
 #include <stdio.h>
+#include <stdbool.h>
 
-#define MAX 100
+#define N 6 //Aqui que muda a quantidade de Rainhas
 
-void imprimirCaminho(int caminho[], int tamanho) {
-    for (int i = 0; i < tamanho; i++) {
-        printf("(%d,%d) ", caminho[i*2], caminho[i*2+1]);
-        if (i < tamanho - 1) {
-            printf("-> ");
+void imprimirTabuleiro(int tabuleiro[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (tabuleiro[i][j]) {
+                printf("Q ");
+            } else {
+                printf(". ");
+            }
         }
+        printf("\n");
     }
     printf("\n");
 }
 
-void encontrarCaminhos(int x1, int y1, int x2, int y2, int caminho[], int posicao) {
-    caminho[posicao++] = x1;
-    caminho[posicao++] = y1;
+bool podeColocar(int tabuleiro[N][N], int linha, int coluna) {
+    int i, j;
 
-    if (x1 == x2 && y1 == y2) {
-        imprimirCaminho(caminho, posicao / 2);
-        return;
+    for (i = 0; i < linha; i++) {
+        if (tabuleiro[i][coluna])
+            return false;
     }
 
-    if (x1 < x2) {
-        encontrarCaminhos(x1 + 1, y1, x2, y2, caminho, posicao);
+    for (i = linha, j = coluna; i >= 0 && j >= 0; i--, j--) {
+        if (tabuleiro[i][j])
+            return false;
     }
 
-    if (y1 < y2) {
-        encontrarCaminhos(x1, y1 + 1, x2, y2, caminho, posicao);
+    for (i = linha, j = coluna; i >= 0 && j < N; i--, j++) {
+        if (tabuleiro[i][j])
+            return false;
     }
+
+    return true;
+}
+
+bool resolverNQueens(int tabuleiro[N][N], int linha) {
+
+    if (linha >= N) {
+        imprimirTabuleiro(tabuleiro);
+        return true;
+    }
+
+    bool encontrouSolucao = false;
+
+    for (int coluna = 0; coluna < N; coluna++) {
+        if (podeColocar(tabuleiro, linha, coluna)) {
+            tabuleiro[linha][coluna] = 1;
+
+            encontrouSolucao = resolverNQueens(tabuleiro, linha + 1) || encontrouSolucao;
+
+            tabuleiro[linha][coluna] = 0;
+        }
+    }
+
+    return encontrouSolucao;
 }
 
 int main() {
-    int linhas = 3;
-    int colunas = 3;
+    int tabuleiro[N][N] = {0};
 
-    int caminho[MAX];
+    resolverNQueens(tabuleiro, 0);
 
-    printf("Todos os caminhos de (0,0) ate (%d,%d):\n", linhas-1, colunas-1);
-    encontrarCaminhos(0, 0, linhas - 1, colunas - 1, caminho, 0);
 }
