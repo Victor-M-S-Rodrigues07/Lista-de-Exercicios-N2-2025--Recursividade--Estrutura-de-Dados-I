@@ -352,20 +352,92 @@
 //     encontrarCaminhos(0, 0, linhas - 1, colunas - 1, caminho, 0);
 // }
 
-// 28) Problema das N-Rainhas
+// 28) Problema das N-Rainhas {Feito com a ajuda do Chat GPT}
+
+// #include <stdio.h>
+// #include <stdbool.h>
+
+// #define N 6 //Aqui que muda a quantidade de Rainhas
+
+// void imprimirTabuleiro(int tabuleiro[N][N]) {
+//     for (int i = 0; i < N; i++) {
+//         for (int j = 0; j < N; j++) {
+//             if (tabuleiro[i][j]) {
+//                 printf("Q ");
+//             } else {
+//                 printf(". ");
+//             }
+//         }
+//         printf("\n");
+//     }
+//     printf("\n");
+// }
+
+// bool podeColocar(int tabuleiro[N][N], int linha, int coluna) {
+//     int i, j;
+
+//     for (i = 0; i < linha; i++) {
+//         if (tabuleiro[i][coluna])
+//             return false;
+//     }
+
+//     for (i = linha, j = coluna; i >= 0 && j >= 0; i--, j--) {
+//         if (tabuleiro[i][j])
+//             return false;
+//     }
+
+//     for (i = linha, j = coluna; i >= 0 && j < N; i--, j++) {
+//         if (tabuleiro[i][j])
+//             return false;
+//     }
+
+//     return true;
+// }
+
+// bool resolverNQueens(int tabuleiro[N][N], int linha) {
+
+//     if (linha >= N) {
+//         imprimirTabuleiro(tabuleiro);
+//         return true;
+//     }
+
+//     bool encontrouSolucao = false;
+
+//     for (int coluna = 0; coluna < N; coluna++) {
+//         if (podeColocar(tabuleiro, linha, coluna)) {
+//             tabuleiro[linha][coluna] = 1;
+
+//             encontrouSolucao = resolverNQueens(tabuleiro, linha + 1) || encontrouSolucao;
+
+//             tabuleiro[linha][coluna] = 0;
+//         }
+//     }
+
+//     return encontrouSolucao;
+// }
+
+// int main() {
+//     int tabuleiro[N][N] = {0};
+
+//     resolverNQueens(tabuleiro, 0);
+
+// }
+
+// 29) Labirinto com Backtracking {Feito com a ajuda do Chat GPT}
 
 #include <stdio.h>
 #include <stdbool.h>
 
-#define N 6 //Aqui que muda a quantidade de Rainhas
+#define N 3
+#define M 4
 
-void imprimirTabuleiro(int tabuleiro[N][N]) {
+void imprimirLabirinto(int labirinto[N][M]) {
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (tabuleiro[i][j]) {
-                printf("Q ");
+        for (int j = 0; j < M; j++) {
+            if (labirinto[i][j] == 2) {
+                printf("* ");
             } else {
-                printf(". ");
+                printf("%d ", labirinto[i][j]);
             }
         }
         printf("\n");
@@ -373,52 +445,41 @@ void imprimirTabuleiro(int tabuleiro[N][N]) {
     printf("\n");
 }
 
-bool podeColocar(int tabuleiro[N][N], int linha, int coluna) {
-    int i, j;
-
-    for (i = 0; i < linha; i++) {
-        if (tabuleiro[i][coluna])
-            return false;
-    }
-
-    for (i = linha, j = coluna; i >= 0 && j >= 0; i--, j--) {
-        if (tabuleiro[i][j])
-            return false;
-    }
-
-    for (i = linha, j = coluna; i >= 0 && j < N; i--, j++) {
-        if (tabuleiro[i][j])
-            return false;
-    }
-
-    return true;
+bool posicaoValida(int x, int y, int labirinto[N][M]) {
+    return (x >= 0 && x < N && y >= 0 && y < M && labirinto[x][y] == 0);
 }
 
-bool resolverNQueens(int tabuleiro[N][N], int linha) {
+bool resolverLabirinto(int x, int y, int labirinto[N][M]) {
+    if (!posicaoValida(x, y, labirinto)) {
+        return false;
+    }
 
-    if (linha >= N) {
-        imprimirTabuleiro(tabuleiro);
+    labirinto[x][y] = 2;
+
+    if (x == N - 1 && y == M - 1) {
         return true;
     }
 
-    bool encontrouSolucao = false;
+    if (resolverLabirinto(x, y + 1, labirinto)) return true; 
+    if (resolverLabirinto(x + 1, y, labirinto)) return true;
 
-    for (int coluna = 0; coluna < N; coluna++) {
-        if (podeColocar(tabuleiro, linha, coluna)) {
-            tabuleiro[linha][coluna] = 1;
-
-            encontrouSolucao = resolverNQueens(tabuleiro, linha + 1) || encontrouSolucao;
-
-            tabuleiro[linha][coluna] = 0;
-        }
-    }
-
-    return encontrouSolucao;
+    labirinto[x][y] = 0;
+    return false;
 }
 
 int main() {
-    int tabuleiro[N][N] = {0};
+    int labirinto[N][M] = {
+        {0, 1, 0, 0},
+        {0, 0, 0, 1},
+        {1, 0, 1, 0}
+    };
 
-    resolverNQueens(tabuleiro, 0);
+    if (resolverLabirinto(0, 0, labirinto)) {
+        printf("Caminho encontrado:\n");
+        imprimirLabirinto(labirinto);
+    } else {
+        printf("Nenhum caminho encontrado.\n");
+    }
 
+    return 0;
 }
