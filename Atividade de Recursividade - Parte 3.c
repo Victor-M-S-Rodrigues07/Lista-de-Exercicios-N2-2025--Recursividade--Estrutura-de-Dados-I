@@ -425,61 +425,94 @@
 
 // 29) Labirinto com Backtracking {Feito com a ajuda do Chat GPT}
 
+// #include <stdio.h>
+// #include <stdbool.h>
+
+// #define N 3
+// #define M 4
+
+// void imprimirLabirinto(int labirinto[N][M]) {
+//     for (int i = 0; i < N; i++) {
+//         for (int j = 0; j < M; j++) {
+//             if (labirinto[i][j] == 2) {
+//                 printf("* ");
+//             } else {
+//                 printf("%d ", labirinto[i][j]);
+//             }
+//         }
+//         printf("\n");
+//     }
+//     printf("\n");
+// }
+
+// bool posicaoValida(int x, int y, int labirinto[N][M]) {
+//     return (x >= 0 && x < N && y >= 0 && y < M && labirinto[x][y] == 0);
+// }
+
+// bool resolverLabirinto(int x, int y, int labirinto[N][M]) {
+//     if (!posicaoValida(x, y, labirinto)) {
+//         return false;
+//     }
+
+//     labirinto[x][y] = 2;
+
+//     if (x == N - 1 && y == M - 1) {
+//         return true;
+//     }
+
+//     if (resolverLabirinto(x, y + 1, labirinto)) return true; 
+//     if (resolverLabirinto(x + 1, y, labirinto)) return true;
+
+//     labirinto[x][y] = 0;
+//     return false;
+// }
+
+// int main() {
+//     int labirinto[N][M] = {
+//         {0, 1, 0, 0},
+//         {0, 0, 0, 1},
+//         {1, 0, 1, 0}
+//     };
+
+//     if (resolverLabirinto(0, 0, labirinto)) {
+//         printf("Caminho encontrado:\n");
+//         imprimirLabirinto(labirinto);
+//     } else {
+//         printf("Nenhum caminho encontrado.\n");
+//     }
+
+//     return 0;
+// }
+
+// 30) Gerador de Parênteses Válidos {Feito com a ajuda do chat GPT...}
+
 #include <stdio.h>
-#include <stdbool.h>
 
-#define N 3
-#define M 4
-
-void imprimirLabirinto(int labirinto[N][M]) {
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            if (labirinto[i][j] == 2) {
-                printf("* ");
-            } else {
-                printf("%d ", labirinto[i][j]);
-            }
-        }
-        printf("\n");
-    }
-    printf("\n");
-}
-
-bool posicaoValida(int x, int y, int labirinto[N][M]) {
-    return (x >= 0 && x < N && y >= 0 && y < M && labirinto[x][y] == 0);
-}
-
-bool resolverLabirinto(int x, int y, int labirinto[N][M]) {
-    if (!posicaoValida(x, y, labirinto)) {
-        return false;
+void gerarParenteses(int n, int abertos, int fechados, char resultado[], int posicao) {
+    
+    if (abertos == n && fechados == n) {
+        resultado[posicao] = '\0';  
+        printf("%s\n", resultado);
+        return;
     }
 
-    labirinto[x][y] = 2;
-
-    if (x == N - 1 && y == M - 1) {
-        return true;
+    if (abertos < n) {
+        resultado[posicao] = '(';
+        gerarParenteses(n, abertos + 1, fechados, resultado, posicao + 1);
     }
 
-    if (resolverLabirinto(x, y + 1, labirinto)) return true; 
-    if (resolverLabirinto(x + 1, y, labirinto)) return true;
-
-    labirinto[x][y] = 0;
-    return false;
+    if (fechados < abertos) {
+        resultado[posicao] = ')';
+        gerarParenteses(n, abertos, fechados + 1, resultado, posicao + 1);
+    }
 }
 
 int main() {
-    int labirinto[N][M] = {
-        {0, 1, 0, 0},
-        {0, 0, 0, 1},
-        {1, 0, 1, 0}
-    };
+    int n = 3; 
+    char resultado[2 * n + 1];
 
-    if (resolverLabirinto(0, 0, labirinto)) {
-        printf("Caminho encontrado:\n");
-        imprimirLabirinto(labirinto);
-    } else {
-        printf("Nenhum caminho encontrado.\n");
-    }
+    printf("Combinacoes de %d pares de parenteses:\n", n);
+    gerarParenteses(n, 0, 0, resultado, 0);
 
     return 0;
 }
