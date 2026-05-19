@@ -4,7 +4,7 @@
 
 ## 📝Descrição da Lista
 
-Este repositório contém uma coleção de 30 exercícios de recursividade desenvolvidos como parte da disciplina de Estrutura de Dados I, ministrada pelo Prof. Mayck Diego Cipriano. O material foi elaborado com foco no treinamento prático e na consolidação dos conceitos de recursividade. <br>
+Este repositório contém uma coleção de 30 (trinta) exercícios de recursividade desenvolvidos como parte da disciplina de Estrutura de Dados I, ministrada pelo Prof. Mayck Diego Cipriano. O material foi elaborado com foco no treinamento prático e na consolidação dos conceitos de recursividade. <br>
 
 Os exercícios abrangem desde problemas clássicos (como Fatorial, Fibonacci) até algoritmos mais complexos (como Backtracking, N-Rainhas, Ordenação e Busca), permitindo uma progressão de dificuldade. <br> <br>
 
