@@ -80,7 +80,7 @@ Os exercícios abrangem desde problemas clássicos (como Fatorial, Fibonacci) at
 27.	Caminho em Matriz;
 28.	Problema das N-Rainhas;
 29. Labirinto com Backtracking;
-30.	Gerador de Parênteses Válidos. <br><br>
+30.	Gerador de Parênteses Válidos.
 
 > [!NOTE]
 > Alguns exercícios mais avançados foram desenvolvidos com apoio de ferramentas de IA para validação e compreensão dos algoritmos.
