@@ -10,18 +10,16 @@
 
 ## 🗂 Sumário
 
-- [📝 Descrição da Lista](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-descri%C3%A7%C3%A3o-do-projeto)
-- [💻 Acesso ao Projeto](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-acesso-ao-site)
-- [🎯 Objetivos da Lista](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-objetivos-do-curso)
-- [💻 Tecnologias Utilizadas](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-tecnologias-utilizadas)
-- [⚡ Exercícios](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-funcionalidades-e-inova%C3%A7%C3%B5es-do-projeto)
-- [📂 Estrutura do Projeto](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-estrutura-do-projeto)
-    - [🔹 Nível Básico](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-estrutura-do-projeto)
-    - [🔹 Nível Intermediário](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-estrutura-do-projeto)
-    - [🔹 Nível Avançado](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-estrutura-do-projeto)
-- [📂 Estrutura da Lista](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-imagens-do-projeto)
-- [✨Autor](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-autor)
-- [📞 Contatos](https://github.com/Victor-M-S-Rodrigues07/Projeto-Alura-Plus--Projeto-N1-2026#-contatos)
+- [📝 Descrição da Lista](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-descri%C3%A7%C3%A3o-da-lista)
+- [🎯 Objetivos da Lista](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-objetivos-da-lista)
+- [💻 Tecnologias Utilizadas](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-tecnologias-utilizadas)
+- [⚡ Exercícios](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-exerc%C3%ADcios)
+    - [🔹 Nível Básico](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-n%C3%ADvel-b%C3%A1sico)
+    - [🔹 Nível Intermediário](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-n%C3%ADvel-intermedi%C3%A1rio)
+    - [🔹 Nível Avançado](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-n%C3%ADvel-avan%C3%A7ado)
+- [📂 Estrutura da Lista](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-estrutura-da-lista)
+- [✨Autor](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#autor)
+- [📞 Contatos](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-contatos)
 
 
 ## 📝 Descrição da Lista
@@ -43,7 +41,7 @@ Os exercícios abrangem desde problemas clássicos (como Fatorial, Fibonacci) at
 ![Git](https://img.shields.io/badge/Git-0?style=for-the-badge&logo=git&logoColor=%23FFFFFF&color=%23F05032)
 ![GitHub](https://img.shields.io/badge/GitHub-0?style=for-the-badge&logo=github&logoColor=%23FFFFFF&color=%23181717) <br>
 
-## ⚡ ExercícioS
+## ⚡ Exercícios
 
 ### 🔹 Nível Básico
 
@@ -82,7 +80,7 @@ Os exercícios abrangem desde problemas clássicos (como Fatorial, Fibonacci) at
 27.	Caminho em Matriz;
 28.	Problema das N-Rainhas;
 29. Labirinto com Backtracking;
-30.	Gerador de Parênteses Válidos. <br>
+30.	Gerador de Parênteses Válidos. <br><br>
 
 > [!NOTE]
 > Alguns exercícios mais avançados foram desenvolvidos com apoio de ferramentas de IA para validação e compreensão dos algoritmos.
