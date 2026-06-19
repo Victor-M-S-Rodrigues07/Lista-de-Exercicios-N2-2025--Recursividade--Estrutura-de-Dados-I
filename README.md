@@ -21,7 +21,6 @@
 - [✨Autor](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#autor)
 - [📞 Contatos](https://github.com/Victor-M-S-Rodrigues07/Lista-de-Exercicios-N2-2025--Recursividade--Estrutura-de-Dados-I#-contatos)
 
-
 ## 📝 Descrição da Lista
 
 Este repositório contém uma coleção de 30 (trinta) exercícios de recursividade desenvolvidos como parte da disciplina de Estrutura de Dados I, ministrada pelo Prof. Mayck Diego Cipriano. O material foi elaborado com foco no treinamento prático e na consolidação dos conceitos de recursividade. <br>
